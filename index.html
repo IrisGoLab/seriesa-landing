@@ -66,6 +66,17 @@
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(132, 204, 22, 0.15);
         }
+        /* Flywheel Animation */
+        @keyframes flywheel-rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .flywheel-ring {
+            animation: flywheel-rotate 30s linear infinite;
+        }
+        .flywheel-arrows {
+            animation: flywheel-rotate 40s linear infinite;
+        }
     </style>
 </head>
 <body class="bg-white font-sans antialiased">
@@ -489,74 +500,76 @@
             <div class="text-center mb-16">
                 <span class="text-iris-500 font-medium text-sm uppercase tracking-wider">Business Model</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-iris-950 mt-4 mb-6">
-                    B2B2C: OEMs Pay, Users Stay
+                    Consumer Platform + Enterprise Data
                 </h2>
+                <p class="text-iris-600 text-lg max-w-2xl mx-auto">
+                    OEMs distribute for free. Users convert to premium. Behavior data feeds enterprise AI.
+                </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Revenue Streams -->
-                <div class="space-y-4">
-                    <div class="bg-iris-50 p-6 rounded-xl border border-iris-200">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div class="w-10 h-10 bg-iris-500 rounded-lg flex items-center justify-center text-white font-bold">1</div>
-                            <h3 class="font-bold text-iris-950 text-lg">OEM Licensing</h3>
+                <div class="space-y-6">
+                    <!-- Consumer Revenue -->
+                    <div>
+                        <div class="text-xs font-semibold text-iris-500 uppercase tracking-wider mb-3">Consumer Revenue</div>
+                        <div class="space-y-3">
+                            <div class="bg-iris-50 p-5 rounded-xl border border-iris-200">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-bold text-iris-950">Premium Subscription</h3>
+                                    <span class="text-iris-500 font-semibold text-sm">from $14.9/mo</span>
+                                </div>
+                                <p class="text-iris-600 text-sm">Advanced AI models & features</p>
+                            </div>
+                            <div class="bg-iris-50 p-5 rounded-xl border border-iris-200">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-bold text-iris-950">Skills Marketplace</h3>
+                                    <span class="text-iris-500 font-semibold text-sm">30% take</span>
+                                </div>
+                                <p class="text-iris-600 text-sm">Third-party skill sales</p>
+                            </div>
                         </div>
-                        <p class="text-iris-600">Per-device license fee for pre-installation. Revenue starts at shipment.</p>
-                        <div class="mt-3 text-iris-500 text-sm font-medium">$2-5 per device</div>
                     </div>
 
-                    <div class="bg-iris-50 p-6 rounded-xl border border-iris-200">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div class="w-10 h-10 bg-iris-500 rounded-lg flex items-center justify-center text-white font-bold">2</div>
-                            <h3 class="font-bold text-iris-950 text-lg">Premium Subscription</h3>
+                    <!-- Enterprise Revenue -->
+                    <div>
+                        <div class="text-xs font-semibold text-iris-500 uppercase tracking-wider mb-3">Enterprise Revenue</div>
+                        <div class="bg-iris-50 p-5 rounded-xl border border-iris-200">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bold text-iris-950">Helix Data Services</h3>
+                                <span class="text-xs bg-iris-500 text-white px-2 py-0.5 rounded-full">Helix</span>
+                            </div>
+                            <p class="text-iris-600 text-sm">High-quality training data for AI companies</p>
+                            <p class="text-iris-500 text-xs mt-2">Customers: Google, Meta, OpenAI</p>
                         </div>
-                        <p class="text-iris-600">Users upgrade for advanced AI models and features. Recurring revenue.</p>
-                        <div class="mt-3 text-iris-500 text-sm font-medium">$10-20/month</div>
-                    </div>
-
-                    <div class="bg-iris-50 p-6 rounded-xl border border-iris-200">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div class="w-10 h-10 bg-iris-500 rounded-lg flex items-center justify-center text-white font-bold">3</div>
-                            <h3 class="font-bold text-iris-950 text-lg">Skills Marketplace</h3>
-                        </div>
-                        <p class="text-iris-600">30% take rate on third-party skill sales. Platform economics.</p>
-                        <div class="mt-3 text-iris-500 text-sm font-medium">30% rev share</div>
-                    </div>
-
-                    <div class="bg-iris-50 p-6 rounded-xl border border-iris-200">
-                        <div class="flex items-center gap-4 mb-3">
-                            <div class="w-10 h-10 bg-iris-500 rounded-lg flex items-center justify-center text-white font-bold">4</div>
-                            <h3 class="font-bold text-iris-950 text-lg">Enterprise Data Services</h3>
-                        </div>
-                        <p class="text-iris-600">Helix Network provides high-quality training data to AI companies.</p>
-                        <div class="mt-3 text-iris-500 text-sm font-medium">Data-as-a-Service</div>
                     </div>
                 </div>
 
                 <!-- Revenue Projections -->
+                <!-- TODO: 需與 Jeffrey/Arnold 確認三年 ARR 預估及各來源比例 -->
                 <div class="bg-iris-950 rounded-2xl p-8">
                     <h3 class="text-white font-bold text-xl mb-6">Revenue Projections (3-Year)</h3>
                     <div class="space-y-5">
                         <div class="bg-iris-900/50 p-4 rounded-xl">
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-iris-300 font-medium">Year 1 (2026)</span>
-                                <span class="text-iris-400 font-bold text-xl">$3M ARR</span>
+                                <span class="text-iris-400 font-bold text-xl">$1M ARR</span>
                             </div>
-                            <div class="text-iris-500 text-xs">Subscription $1M + Platform $1.44M + Data $0.5M</div>
+                            <div class="text-iris-500 text-xs">Subscription + Marketplace + Annotation</div>
                         </div>
                         <div class="bg-iris-900/50 p-4 rounded-xl">
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-iris-300 font-medium">Year 2 (2027)</span>
-                                <span class="text-iris-400 font-bold text-xl">$10.2M ARR</span>
+                                <span class="text-iris-400 font-bold text-xl">$5M ARR</span>
                             </div>
-                            <div class="text-iris-500 text-xs">Subscription $2M + Platform $7.2M + Data $1M</div>
+                            <div class="text-iris-500 text-xs">Subscription + Marketplace + Annotation</div>
                         </div>
                         <div class="bg-iris-900/50 p-4 rounded-xl">
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-iris-300 font-medium">Year 3 (2028)</span>
-                                <span class="text-iris-400 font-bold text-xl">$33.8M ARR</span>
+                                <span class="text-iris-400 font-bold text-xl">$20M ARR</span>
                             </div>
-                            <div class="text-iris-500 text-xs">Subscription $3M + Platform $28.8M + Data $2M</div>
+                            <div class="text-iris-500 text-xs">Subscription + Marketplace + Annotation</div>
                         </div>
                         <div class="pt-4 border-t border-iris-700">
                             <div class="flex justify-between text-white text-sm">
@@ -709,7 +722,142 @@
         </div>
     </section>
 
-    <!-- Section 8: Team -->
+    <!-- Section 8: Three-Engine Flywheel -->
+    <section class="py-24 bg-gradient-to-b from-iris-100 to-iris-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-iris-500 font-medium text-sm uppercase tracking-wider">Long-Term Vision</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-iris-950 mt-4 mb-4">
+                    Three-Engine Flywheel
+                </h2>
+                <p class="text-iris-600 text-lg max-w-2xl mx-auto">
+                    100M+ AIPC users × Three revenue engines × One token economy
+                </p>
+            </div>
+
+            <!-- Flywheel Diagram -->
+            <div class="relative flex justify-center items-center min-h-[580px] mb-12">
+                <div class="relative w-full max-w-[650px] h-[580px]">
+                    <!-- Connection Lines SVG -->
+                    <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 650 580">
+                        <path class="stroke-iris-200" stroke-width="1" stroke-dasharray="6 4" fill="none" d="M 325 120 Q 325 290 480 450" />
+                        <path class="stroke-iris-200" stroke-width="1" stroke-dasharray="6 4" fill="none" d="M 480 450 Q 325 450 170 450" />
+                        <path class="stroke-iris-200" stroke-width="1" stroke-dasharray="6 4" fill="none" d="M 170 450 Q 170 290 325 120" />
+                    </svg>
+
+                    <!-- Rotating Ring -->
+                    <div class="flywheel-ring absolute top-1/2 left-1/2 w-[200px] h-[200px] border border-dashed border-iris-300 rounded-full"></div>
+
+                    <!-- Flow Arrows Ring -->
+                    <div class="flywheel-arrows absolute top-1/2 left-1/2 w-[340px] h-[340px]">
+                        <svg class="absolute top-0 left-1/2 -translate-x-1/2 rotate-90 w-5 h-5 text-iris-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        <svg class="absolute top-[25%] right-[5%] rotate-[135deg] w-5 h-5 text-iris-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        <svg class="absolute top-1/2 right-0 -translate-y-1/2 rotate-180 w-5 h-5 text-iris-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        <svg class="absolute bottom-[25%] right-[5%] rotate-[225deg] w-5 h-5 text-iris-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        <svg class="absolute bottom-0 left-1/2 -translate-x-1/2 -rotate-90 w-5 h-5 text-iris-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        <svg class="absolute bottom-[25%] left-[5%] rotate-[315deg] w-5 h-5 text-iris-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        <svg class="absolute top-1/2 left-0 -translate-y-1/2 w-5 h-5 text-iris-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        <svg class="absolute top-[25%] left-[5%] rotate-45 w-5 h-5 text-iris-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </div>
+
+                    <!-- Central GoT Token -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130px] h-[130px] rounded-full bg-white border-[3px] border-iris-500 shadow-lg shadow-iris-500/20 flex flex-col justify-center items-center z-10">
+                        <span class="text-3xl mb-1">🪙</span>
+                        <span class="text-xs font-bold text-iris-600 tracking-wide">GoT Token</span>
+                        <span class="text-[10px] text-gray-500 mt-0.5">Economic Engine</span>
+                    </div>
+
+                    <!-- Engine Card: Data Annotation (Top) -->
+                    <div class="absolute top-4 left-1/2 -translate-x-1/2 w-[190px] p-5 bg-white rounded-xl border border-iris-200 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all">
+                        <div class="w-9 h-9 bg-iris-500 rounded-lg flex items-center justify-center mb-3">
+                            <span class="text-lg">🏷️</span>
+                        </div>
+                        <h4 class="font-bold text-iris-950 text-sm mb-1.5 leading-tight">Data Annotation Network</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-3">Users complete AI labeling tasks for Google, Meta, World Labs</p>
+                        <div class="text-xl font-extrabold text-iris-950">$134M</div>
+                        <div class="text-[10px] text-gray-500 uppercase tracking-wide">ARR Potential</div>
+                    </div>
+
+                    <!-- Engine Card: Skill Marketplace (Bottom Right) -->
+                    <div class="absolute bottom-8 right-5 w-[190px] p-5 bg-white rounded-xl border border-iris-200 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all">
+                        <div class="w-9 h-9 bg-iris-500 rounded-lg flex items-center justify-center mb-3">
+                            <span class="text-lg">⚡</span>
+                        </div>
+                        <h4 class="font-bold text-iris-950 text-sm mb-1.5 leading-tight">Skill Marketplace</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-3">Developers publish AI Skills, 30% platform commission</p>
+                        <div class="text-xl font-extrabold text-iris-950">$120M</div>
+                        <div class="text-[10px] text-gray-500 uppercase tracking-wide">ARR Potential</div>
+                    </div>
+
+                    <!-- Engine Card: OEM Channel (Bottom Left) -->
+                    <div class="absolute bottom-8 left-5 w-[190px] p-5 bg-white rounded-xl border border-iris-200 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all">
+                        <div class="w-9 h-9 bg-iris-500 rounded-lg flex items-center justify-center mb-3">
+                            <span class="text-lg">💻</span>
+                        </div>
+                        <h4 class="font-bold text-iris-950 text-sm mb-1.5 leading-tight">OEM Channel</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-3">Pre-install on Acer, HP, ASUS for 100M+ distribution</p>
+                        <div class="text-xl font-extrabold text-iris-950">$200M</div>
+                        <div class="text-[10px] text-gray-500 uppercase tracking-wide">ARR Potential</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flow Steps -->
+            <div class="flex flex-wrap justify-center items-center gap-2 mb-12">
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-iris-200 text-xs font-medium text-gray-600">
+                    <span>💻</span><span>OEM Pre-install</span>
+                </div>
+                <span class="text-iris-300 text-sm">→</span>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-iris-200 text-xs font-medium text-gray-600">
+                    <span>👥</span><span>Acquire Users</span>
+                </div>
+                <span class="text-iris-300 text-sm">→</span>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-iris-200 text-xs font-medium text-gray-600">
+                    <span>🏷️</span><span>Complete Tasks</span>
+                </div>
+                <span class="text-iris-300 text-sm">→</span>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-iris-200 text-xs font-medium text-gray-600">
+                    <span>🪙</span><span>Earn GoT</span>
+                </div>
+                <span class="text-iris-300 text-sm">→</span>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-iris-200 text-xs font-medium text-gray-600">
+                    <span>⚡</span><span>Buy Skills</span>
+                </div>
+                <span class="text-iris-300 text-sm">→</span>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-iris-200 text-xs font-medium text-gray-600">
+                    <span>🔄</span><span>Value ↑</span>
+                </div>
+            </div>
+
+            <!-- Total ARR Potential -->
+            <div class="bg-white rounded-2xl border border-iris-200 shadow-sm p-10 text-center">
+                <div class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-3">Total Addressable ARR Potential</div>
+                <div class="text-5xl md:text-6xl font-extrabold text-iris-950 mb-3">$454M</div>
+                <div class="text-gray-600 mb-8">Three Engines Synergy · 2028 Valuation Ceiling ~$4.5B</div>
+
+                <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-16 pt-8 border-t border-iris-100">
+                    <div class="text-center">
+                        <div class="text-2xl font-extrabold text-iris-600 mb-1">$134M</div>
+                        <div class="text-[11px] text-gray-500 uppercase tracking-wide">Data Annotation</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-extrabold text-iris-600 mb-1">$120M</div>
+                        <div class="text-[11px] text-gray-500 uppercase tracking-wide">Skill Marketplace</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-extrabold text-iris-600 mb-1">$200M</div>
+                        <div class="text-[11px] text-gray-500 uppercase tracking-wide">OEM Channel</div>
+                    </div>
+                </div>
+
+                <p class="text-sm text-gray-500 mt-8 italic">
+                    * ARR Potential represents total addressable ceiling. See Business Model section for conservative 3-year projections ($1M → $5M → $20M ARR).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Team -->
     <section class="py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -721,25 +869,19 @@
 
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <div class="text-center">
-                    <div class="w-28 h-28 bg-gradient-to-br from-iris-400 to-iris-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span class="text-4xl font-bold text-iris-950">J</span>
-                    </div>
+                    <img src="https://seriesa.irisgo.xyz/jeffrey-lai.jpeg" alt="Jeffrey Lai" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-xl font-bold text-iris-950">Jeffrey Lai</h3>
                     <p class="text-iris-500 text-sm mb-3">CEO & Co-Founder</p>
                     <p class="text-iris-600 text-sm">Ex-Apple Siri Engineering Manager. CMU ECE. Led voice AI teams at scale. AI Fund Founder-in-Residence.</p>
                 </div>
                 <div class="text-center">
-                    <div class="w-28 h-28 bg-gradient-to-br from-iris-400 to-iris-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span class="text-4xl font-bold text-iris-950">A</span>
-                    </div>
+                    <img src="https://seriesa.irisgo.xyz/arnold-yip.jpeg" alt="Arnold Yip" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-xl font-bold text-iris-950">Arnold Yip</h3>
                     <p class="text-iris-500 text-sm mb-3">CTO & Co-Founder</p>
                     <p class="text-iris-600 text-sm">Ex-Apple 10+ years. Software Engineering Manager. CMU ECE BS+MS. 2 US Patents. Shipped products to millions.</p>
                 </div>
                 <div class="text-center">
-                    <div class="w-28 h-28 bg-gradient-to-br from-iris-400 to-iris-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span class="text-4xl font-bold text-iris-950">L</span>
-                    </div>
+                    <img src="https://seriesa.irisgo.xyz/lman-chu.jpeg" alt="Lman Chu" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-xl font-bold text-iris-950">Lman Chu</h3>
                     <p class="text-iris-500 text-sm mb-3">COO & Co-Founder</p>
                     <p class="text-iris-600 text-sm">25+ years hardware-software integration. Serial entrepreneur. The OEM whisperer - Acer/ASUS/Intel relationships.</p>
@@ -759,8 +901,8 @@
                         <p class="text-iris-500 text-sm">Solution Partner</p>
                     </div>
                     <div>
-                        <div class="text-2xl font-bold text-iris-950">AngelList</div>
-                        <p class="text-iris-500 text-sm">RUV</p>
+                        <div class="text-2xl font-bold text-iris-950">PC OEMs</div>
+                        <p class="text-iris-500 text-sm">Partners</p>
                     </div>
                 </div>
                 <p class="text-iris-400 text-sm mt-6">Legal: Fenwick & West LLP</p>
@@ -768,7 +910,7 @@
         </div>
     </section>
 
-    <!-- Section 9: The Ask -->
+    <!-- Section 10: The Ask -->
     <section class="py-24 bg-iris-950">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <span class="text-iris-400 font-medium text-sm uppercase tracking-wider">Series A</span>
@@ -817,7 +959,7 @@
                         <p class="text-iris-300 text-xs">Paid Subscribers</p>
                     </div>
                     <div>
-                        <div class="text-2xl font-bold text-white">$10M</div>
+                        <div class="text-2xl font-bold text-white">$5M</div>
                         <p class="text-iris-300 text-xs">ARR</p>
                     </div>
                     <div>
