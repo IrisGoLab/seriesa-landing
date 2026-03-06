@@ -96,8 +96,10 @@
                     <path d="M242.976 141.502L220.963 169.504L190.215 145.336L184.653 140.957H184.629L176.273 134.377L160.887 122.281L152.579 115.772L146.993 111.369L136.318 102.99L135.868 102.635C137.383 101.262 138.992 100.007 140.649 98.8949C143.561 96.9302 146.685 95.368 149.904 94.2081C156.13 91.9358 162.828 91.131 169.385 91.8648C172.817 92.2435 176.202 93.0246 179.469 94.2318C181.575 95.0129 183.611 95.9361 185.576 97.0722C187.446 98.1137 189.268 99.3209 190.996 100.67L242.976 141.502Z" fill="#DDF79F"/>
                 </svg>
             </a>
-            <div class="flex items-center gap-6">
-                <span class="text-iris-300 text-sm font-medium">Series A</span>
+            <div class="flex items-center gap-4 md:gap-6">
+                <span class="text-iris-300 text-sm font-medium hidden md:inline">Series A</span>
+                <a href="https://oem.irisgo.xyz" target="_blank" class="text-iris-300 text-sm hover:text-iris-100 transition">OEM</a>
+                <a href="faq.html" class="text-iris-300 text-sm hover:text-iris-100 transition">FAQ</a>
                 <a href="mailto:lman@irisgo.ai" class="px-4 py-2 bg-iris-500 text-iris-950 rounded-lg font-semibold text-sm hover:bg-iris-400 transition">
                     Contact Us
                 </a>
@@ -977,17 +979,21 @@
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                <a href="mailto:lman@irisgo.ai" class="px-10 py-5 bg-iris-500 text-iris-950 rounded-xl font-bold text-lg hover:bg-iris-400 transition flex items-center gap-2">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+                <a href="https://drive.google.com/drive/folders/1abscBEFnuJZAtAhwOw0y2eL-IEURD7tr" target="_blank" class="px-10 py-5 bg-iris-500 text-iris-950 rounded-xl font-bold text-lg hover:bg-iris-400 transition flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"/>
+                    </svg>
+                    Data Room
+                </a>
+                <a href="mailto:lman@irisgo.ai" class="px-10 py-5 border-2 border-iris-500/50 text-iris-300 rounded-xl font-bold text-lg hover:bg-iris-500/10 transition flex items-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
-                    Request Full Deck
-                </a>
-                <a href="mailto:partnerships@irisgo.ai" class="px-10 py-5 border-2 border-iris-500/50 text-iris-300 rounded-xl font-bold text-lg hover:bg-iris-500/10 transition">
-                    OEM Partnerships
+                    Request Access
                 </a>
             </div>
+            <p class="text-iris-400/60 text-xs text-center mb-8">Data Room access is granted on a per-email basis. If you don't have access, click "Request Access" and we'll add you within 24 hours.</p>
 
             <div class="flex flex-wrap items-center justify-center gap-8 text-iris-400">
                 <div class="flex items-center gap-2">
@@ -1005,6 +1011,103 @@
             </div>
         </div>
     </section>
+
+    <!-- Email Gate Modal (auto-shows on page load, no dismiss without submitting) -->
+    <div id="emailGate" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 bg-iris-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">📊</span>
+                </div>
+                <h3 class="text-2xl font-bold text-iris-950 mb-2">Welcome to IrisGo Series A</h3>
+                <p class="text-gray-500 text-sm">This page contains confidential information. Please identify yourself to continue.</p>
+            </div>
+            <form id="deckForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                    <input type="email" name="email" required placeholder="you@company.com" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-iris-500 focus:border-iris-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                    <input type="text" name="name" required placeholder="Your name" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-iris-500 focus:border-iris-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Company / Organization *</label>
+                    <input type="text" name="company" required placeholder="Your company" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-iris-500 focus:border-iris-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                    <select name="role" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-iris-500 focus:border-iris-500 outline-none text-gray-600">
+                        <option value="">Select your role</option>
+                        <option value="Investor / VC">Investor / VC</option>
+                        <option value="OEM / Hardware Partner">OEM / Hardware Partner</option>
+                        <option value="Developer / Engineer">Developer / Engineer</option>
+                        <option value="Executive / C-Suite">Executive / C-Suite</option>
+                        <option value="Media / Press">Media / Press</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" id="deckSubmitBtn" class="w-full py-4 bg-iris-500 text-iris-950 rounded-xl font-bold text-lg hover:bg-iris-400 transition cursor-pointer">
+                    Continue
+                </button>
+            </form>
+            <div id="deckSuccess" class="hidden text-center py-8">
+                <div class="text-4xl mb-4">✅</div>
+                <h3 class="text-xl font-bold text-iris-950 mb-2">Welcome!</h3>
+                <p class="text-gray-500">Redirecting you to the deck...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // If user already submitted, skip the gate
+    if (localStorage.getItem('irisgo_gate_email')) {
+        document.getElementById('emailGate').classList.add('hidden');
+    }
+
+    document.getElementById('deckForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('deckSubmitBtn');
+        btn.textContent = 'Verifying...';
+        btn.disabled = true;
+
+        const data = {
+            email: this.email.value,
+            name: this.name.value,
+            company: this.company.value,
+            role: this.role.value,
+            source: 'seriesa.irisgo.xyz',
+            timestamp: new Date().toISOString()
+        };
+
+        // Remember for future visits
+        localStorage.setItem('irisgo_gate_email', this.email.value);
+
+        try {
+            await fetch('https://script.google.com/macros/s/AKfycbwKdXlJDqR3Y5Cm0r5wPGFLYqOp8vS0ZuGjKEqJfA1BPQZ4rHGhPfA7VpN7sEmxYL1c/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+        } catch(err) {
+            // no-cors mode won't give us response, but data is sent
+        }
+
+        document.getElementById('deckForm').classList.add('hidden');
+        document.getElementById('deckSuccess').classList.remove('hidden');
+        setTimeout(() => {
+            document.getElementById('emailGate').classList.add('hidden');
+            document.getElementById('deckForm').classList.remove('hidden');
+            document.getElementById('deckSuccess').classList.add('hidden');
+            document.getElementById('deckForm').reset();
+            btn.textContent = 'Send Me the Deck';
+            btn.disabled = false;
+        }, 3000);
+    });
+
+    // No backdrop close — must submit to access content
+    </script>
 
     <!-- Footer -->
     <footer class="bg-iris-900 py-8">
